@@ -2,8 +2,8 @@
 apiVersion: nddev.ai/v1alpha4
 kind: Repository
 metadata:
-  id: nddev-device-sync-rds
-  locator: github:NDDev-Technocracy-OpenNetwork-NDS/nddev-device-sync-rds
+  id: nddev-device-sync-remote
+  locator: github:NDDev-Technocracy-OpenNetwork-NDS/nddev-device-sync-remote
   owner: rldyourmnd
 spec:
   standard:

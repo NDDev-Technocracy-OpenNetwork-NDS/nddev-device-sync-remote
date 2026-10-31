@@ -120,7 +120,7 @@ pub struct OwnedEndpoint {
 }
 
 impl OwnedEndpoint {
-    /// `key` must be owned by the existing protected Accounts RDS namespace.
+    /// `key` must be owned by the existing protected Accounts remote-module namespace.
     /// Caller retains its cross-process credential ownership lease until close.
     pub async fn bind(
         device: DeviceId,

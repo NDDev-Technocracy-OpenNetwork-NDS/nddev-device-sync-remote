@@ -1,6 +1,6 @@
 use nddev_device_sync_adapter_io::{CancellationToken, NativeIo, ProcessRequest};
-use nddev_device_sync_rds::{
-    Rds, ReadRds,
+use nddev_device_sync_remote::{
+    ReadRemote, Remote,
     view::{RemoteSnapshot, SessionState},
 };
 use std::{
@@ -52,7 +52,7 @@ fn spawn(agent: &Path, root: &Path, name: &str, allow: Option<&str>) -> (OwnedAg
     )
 }
 
-async fn ready(agent: &mut OwnedAgent, provider: &Rds) -> RemoteSnapshot {
+async fn ready(agent: &mut OwnedAgent, provider: &Remote) -> RemoteSnapshot {
     let deadline = Instant::now() + Duration::from_secs(10);
     loop {
         if let Ok(snapshot) = provider.sessions(CancellationToken::new()).await {
@@ -108,7 +108,7 @@ async fn reads_actual_loopback_connection_and_preserves_native_selection() {
     }
     let io = NativeIo::new(2).unwrap();
     let (mut first_agent, first_control) = spawn(&agent, fixture.path(), "first", None);
-    let first_provider = Rds::new(
+    let first_provider = Remote::new(
         io.process_handle(),
         cli.clone(),
         Some(first_control.clone()),
@@ -118,7 +118,7 @@ async fn reads_actual_loopback_connection_and_preserves_native_selection() {
     assert!(first.sessions.is_empty());
     let (mut second_agent, second_control) =
         spawn(&agent, fixture.path(), "second", Some(&first.endpoint));
-    let second_provider = Rds::new(
+    let second_provider = Remote::new(
         io.process_handle(),
         cli.clone(),
         Some(second_control.clone()),

@@ -21,7 +21,7 @@ import tomllib
 import urllib.request
 
 
-REPOSITORY = "NDDev-Technocracy-OpenNetwork-NDS/nddev-device-sync-rds"
+REPOSITORY = "NDDev-Technocracy-OpenNetwork-NDS/nddev-device-sync-remote"
 TARGET = "x86_64-unknown-linux-gnu"
 CORE_REPOSITORY = "https://github.com/NDDev-Technocracy-OpenNetwork-NDS/nddev-device-sync-core.git"
 CORE_PACKAGES = ("nddev-device-sync-domain", "nddev-device-sync-application")
@@ -123,12 +123,12 @@ def main():
     # Cargo fetch itself has no --features option.
     libraries = {name: features for name, features in bootstrap.LIBRARIES.items()
                  if not args.owned_screen or name != "rds-agent"}
-    manifest = ["[package]", 'name="nds-rds-library-consumer"', 'version="0.0.0"',
+    manifest = ["[package]", 'name="nds-remote-library-consumer"', 'version="0.0.0"',
                 'edition="2024"', 'license="AGPL-3.0-only"']
     if args.owned_screen:
-        manifest.extend(["[features]", 'owned-screen=["nddev-device-sync-rds/owned-screen"]'])
+        manifest.extend(["[features]", 'owned-screen=["nddev-device-sync-remote/owned-screen"]'])
     manifest.extend(["[dependencies]",
-                     f"nddev-device-sync-rds={{{sdk},version=\"={sdk_version}\",features={json.dumps(sdk_features)}}}"])
+                     f"nddev-device-sync-remote={{{sdk},version=\"={sdk_version}\",features={json.dumps(sdk_features)}}}"])
     if args.owned_screen:
         for name, dep in core_inputs.items():
             manifest.append(name + "={" + ",".join(key + "=" + json.dumps(value) for key, value in dep.items()) + "}")
@@ -177,7 +177,7 @@ def main():
             raise ValueError(f"ambiguous/missing selected package: {name}")
         return matches[0]
 
-    sdk_node = node_for("nddev-device-sync-rds")
+    sdk_node = node_for("nddev-device-sync-remote")
     if set(sdk_node["features"]) - {"default"} != set(sdk_features):
         raise ValueError("the SDK does not have the selected qualification feature")
     sdk_package = packages[sdk_node["id"]]

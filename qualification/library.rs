@@ -4,7 +4,7 @@ use rds_net::{Endpoint, SecretKey};
 use std::sync::Arc;
 
 pub fn library_contract() {
-    let _: &str = nddev_device_sync_rds::MANIFEST;
+    let _: &str = nddev_device_sync_remote::MANIFEST;
     let _: fn(Endpoint, AgentPolicy) -> Agent = Agent::new;
     let _: fn(Agent, Arc<dyn rds_desktop::DesktopSource>) -> Agent = Agent::with_desktop_source;
     let _: fn(&[u8; 32]) -> SecretKey = SecretKey::from_bytes;

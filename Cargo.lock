@@ -1787,7 +1787,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "nddev-device-sync-rds"
+name = "nddev-device-sync-remote"
 version = "0.0.1-alpha.2"
 dependencies = [
  "anyhow",

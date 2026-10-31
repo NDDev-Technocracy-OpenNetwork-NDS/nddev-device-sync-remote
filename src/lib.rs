@@ -1,5 +1,6 @@
-//! Read the existing RDS manager through its keyless CLI. The optional Linux
-//! owned-screen adapter consumes Accounts-admitted native viewing inputs;
+//! Read the legacy RDS manager (the frozen `rds` executable) through its
+//! keyless CLI. The optional Linux owned-screen adapter consumes
+//! Accounts-admitted native viewing inputs;
 //! the existing NdsClient owns authority, purpose lifetime and presentation.
 
 #[cfg(any(target_os = "linux", target_os = "macos", target_os = "windows"))]
@@ -7,7 +8,7 @@ mod adapter;
 pub mod view;
 
 #[cfg(any(target_os = "linux", target_os = "macos", target_os = "windows"))]
-pub use adapter::Rds;
+pub use adapter::Remote;
 #[cfg(any(target_os = "linux", target_os = "macos", target_os = "windows"))]
 pub use nddev_device_sync_adapter_io::{CancellationToken, IoError, NativeIo, ProcessIo};
 
@@ -24,7 +25,7 @@ pub enum Error {
 
 /// Application port: callers depend on a typed snapshot, not a native process.
 #[cfg(any(target_os = "linux", target_os = "macos", target_os = "windows"))]
-pub trait ReadRds {
+pub trait ReadRemote {
     fn sessions(
         &self,
         cancellation: CancellationToken,
