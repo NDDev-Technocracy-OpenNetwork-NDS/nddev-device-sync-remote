@@ -4,7 +4,7 @@ use nddev_device_sync_domain::{
     DeviceId,
     screen::{EndpointBinding, ScreenError, ViewProjection},
 };
-use nddev_device_sync_rds::owned::{
+use nddev_device_sync_remote::owned::{
     HostAdmission, OwnedEndpoint,
     runtime::{BuiltinHost, FrameTicket, NativeViewer},
 };

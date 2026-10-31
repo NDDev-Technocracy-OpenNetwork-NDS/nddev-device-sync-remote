@@ -1,9 +1,9 @@
-id: rds
-name: nddev-device-sync-rds
+id: remote
+name: nddev-device-sync-remote
 version: 0.0.1-alpha.2
 channel: alpha
 license: AGPL-3.0-only
-repository: NDDev-Technocracy-OpenNetwork-NDS/nddev-device-sync-rds
+repository: NDDev-Technocracy-OpenNetwork-NDS/nddev-device-sync-remote
 standards_lock: standarts.lock
 runtime_manifest: contracts/module.json
 platforms: [linux, macos, windows]

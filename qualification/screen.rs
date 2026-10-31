@@ -1,4 +1,4 @@
-use crate::adapter::{OpenView, RdsScreen, ScreenFrame, ScreenView};
+use crate::adapter::{OpenView, RemoteScreen, ScreenFrame, ScreenView};
 use ed25519_dalek::SigningKey;
 use nddev_device_sync_domain::screen::{ModuleError, ScreenError, ViewLease};
 use rds_agent::{Agent, AgentPolicy};
@@ -148,8 +148,8 @@ impl Fixture {
             policy,
         }
     }
-    fn adapter(&self) -> RdsScreen {
-        RdsScreen::new(self.root.path().join("control")).unwrap()
+    fn adapter(&self) -> RemoteScreen {
+        RemoteScreen::new(self.root.path().join("control")).unwrap()
     }
     fn client(&self) -> Client {
         Client::new(self.root.path().join("control"))
@@ -472,7 +472,7 @@ async fn actual_pinned_legacy_manager_refuses_the_v5_client() {
         ))
     ));
     assert!(matches!(
-        RdsScreen::new(control)
+        RemoteScreen::new(control)
             .unwrap()
             .capabilities(SessionId([0; 16]), [0; 32], CancellationToken::new())
             .await,
@@ -502,7 +502,7 @@ async fn discovery_reports_actual_inventory_and_disabled_service_without_claimin
             .await;
         assert_eq!(query_outcome(&result), ModuleOutcome::Completed);
         let mut observation = ModuleObservation {
-            id: "rds".into(),
+            id: "remote".into(),
             version: "0.0.1-alpha.1".into(),
             configured: true,
             reachability: Reachability::NotChecked,

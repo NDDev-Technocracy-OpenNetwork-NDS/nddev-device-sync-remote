@@ -1,14 +1,13 @@
 # std-0001 repository manifest — schema: `nddev schema manifest`.
-apiVersion: nddev.ai/v1alpha3
+apiVersion: nddev.ai/v1alpha4
 kind: Repository
 metadata:
-  id: nddev-device-sync-rds
-  locator: github:NDDev-Technocracy-OpenNetwork-NDS/nddev-device-sync-rds
+  id: nddev-device-sync-remote
+  locator: github:NDDev-Technocracy-OpenNetwork-NDS/nddev-device-sync-remote
   owner: rldyourmnd
 spec:
   standard:
     id: std-0001
-    version: 3.0.0
   role: component
   profiles:
   - rust
@@ -28,33 +27,14 @@ spec:
   - name: owned-screen
     source: src/owned.rs
     direction: code-first
-  variations:
-  - paths: [.gds]
-    purpose: config
-    reason: GDS-owned repository anchor and policy projections; std-0001 excludes .gds by its own boundary rule.
-    decision: {state: approved, by: rldyourmnd, date: "2026-10-22", origin: document, reference: standarts/decisions/0013-estate-hygiene-and-standards-adoption.md}
-  - paths: [module.yaml]
-    purpose: manifest
-    reason: NDS module descriptor owned by the product standards corpus.
-    decision: {state: approved, by: rldyourmnd, date: "2026-10-22", origin: document, reference: standarts/decisions/0013-estate-hygiene-and-standards-adoption.md}
-  - paths: [standarts.lock, provider.lock.json, providers]
-    purpose: lock
-    reason: NDS contract locks and verified native provider pins owned by the module.
-    decision: {state: approved, by: rldyourmnd, date: "2026-10-22", origin: document, reference: standarts/decisions/0013-estate-hygiene-and-standards-adoption.md}
-  - paths: [contracts]
-    purpose: manifest
-    reason: NDS compiled-in runtime manifest directory owned by the module.
-    decision: {state: approved, by: rldyourmnd, date: "2026-10-22", origin: document, reference: standarts/decisions/0013-estate-hygiene-and-standards-adoption.md}
-  - paths: [scripts]
-    purpose: tool-config
-    reason: Native provider acceptance scripts owned by the repository.
-    decision: {state: approved, by: rldyourmnd, date: "2026-10-22", origin: document, reference: standarts/decisions/0013-estate-hygiene-and-standards-adoption.md}
-  - paths: [qualification]
-    purpose: test
-    reason: Standalone qualification harness crates and browser fixture sources owned by the module.
-    decision: {state: approved, by: rldyourmnd, date: "2026-10-22", origin: document, reference: standarts/decisions/0013-estate-hygiene-and-standards-adoption.md}
   modules:
   - .
+  adaptations:
+  - docs/decisions/0001-nds-contract-locations.md
+  extensions:
+    nddev.standards-system:
+      standards:
+      - std-0001
   adapters:
   - claude
   - cursor

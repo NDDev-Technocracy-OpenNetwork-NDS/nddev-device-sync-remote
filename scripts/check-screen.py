@@ -58,7 +58,7 @@ def main():
             raise ValueError("legacy executable differs from verified archive")
     # TOML accepts JSON's quoted strings; these strings are never shell commands.
     quote = lambda value: json.dumps(str(value))
-    manifest = ['[package]', 'name="nds-rds-screen-qualification"', 'version="0.0.0"', 'edition="2024"',
+    manifest = ['[package]', 'name="nds-remote-screen-qualification"', 'version="0.0.0"', 'edition="2024"',
                 'license="AGPL-3.0-only"', '[dependencies]',
                 f'nddev-device-sync-domain={{package={quote(package)},version={quote("=" + version)},path={quote(domain)}}}']
     for name, features in [("rds-client", []), ("rds-core", []), ("rds-desktop", ["x11"]),
