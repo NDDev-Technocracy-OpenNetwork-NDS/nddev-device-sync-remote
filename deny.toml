@@ -59,4 +59,4 @@ wildcards = "deny"
 [sources]
 unknown-registry = "deny"
 unknown-git = "deny"
-allow-git = ["https://github.com/NDDev-Technocracy-OpenNetwork-NDS/nddev-device-sync-agent", "https://github.com/NDDev-Technocracy-OpenNetwork-NDS/nddev-device-sync-rds", "https://github.com/NDDev-Technocracy-OpenNetwork-NDS/nddev-device-sync-core.git", "https://github.com/NDDev-Technocracy-OpenNetwork/remote-device-sync"]
+allow-git = ["https://github.com/NDDev-Technocracy-OpenNetwork-NDS/nddev-device-sync-agent", "https://github.com/NDDev-Technocracy-OpenNetwork-NDS/nddev-device-sync-remote", "https://github.com/NDDev-Technocracy-OpenNetwork-NDS/nddev-device-sync-core.git", "https://github.com/NDDev-Technocracy-OpenNetwork/remote-device-sync"]

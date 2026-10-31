@@ -1870,7 +1870,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "nddev-device-sync-rds"
+name = "nddev-device-sync-remote"
 version = "0.0.1-alpha.2"
 dependencies = [
  "nddev-device-sync-adapter-io",
@@ -1885,10 +1885,10 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "27b02d87554356db9e9a873add8782d4ea6e3e58ea071a9adb9a2e8ddb884a8b"
 
 [[package]]
-name = "nds-rds-library-consumer"
+name = "nds-remote-library-consumer"
 version = "0.0.0"
 dependencies = [
- "nddev-device-sync-rds",
+ "nddev-device-sync-remote",
  "rds-agent",
  "rds-client",
  "rds-core",

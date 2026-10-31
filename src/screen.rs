@@ -46,11 +46,11 @@ pub struct OpenView {
 }
 
 #[derive(Clone)]
-pub struct RdsScreen {
+pub struct RemoteScreen {
     client: Client,
     admission: Arc<Semaphore>,
 }
-impl RdsScreen {
+impl RemoteScreen {
     pub fn new(control: PathBuf) -> Result<Self, ScreenError> {
         if !cfg!(target_os = "linux") {
             return Err(ScreenError::Module(ModuleError::UnsupportedPlatform));

@@ -1770,7 +1770,7 @@ dependencies = [
 [[package]]
 name = "nddev-device-sync-application"
 version = "0.0.1-alpha.21"
-source = "git+https://github.com/NDDev-Technocracy-OpenNetwork-NDS/nddev-device-sync-core.git?rev=088e658126c7aabe637b782c1a152f90fce0b47f#088e658126c7aabe637b782c1a152f90fce0b47f"
+source = "git+https://github.com/NDDev-Technocracy-OpenNetwork-NDS/nddev-device-sync-core.git?rev=ad614122d5916accbe1cca198768968b8c5bad0e#ad614122d5916accbe1cca198768968b8c5bad0e"
 dependencies = [
  "nddev-device-sync-domain",
 ]
@@ -1778,7 +1778,7 @@ dependencies = [
 [[package]]
 name = "nddev-device-sync-domain"
 version = "0.0.12"
-source = "git+https://github.com/NDDev-Technocracy-OpenNetwork-NDS/nddev-device-sync-core.git?rev=088e658126c7aabe637b782c1a152f90fce0b47f#088e658126c7aabe637b782c1a152f90fce0b47f"
+source = "git+https://github.com/NDDev-Technocracy-OpenNetwork-NDS/nddev-device-sync-core.git?rev=ad614122d5916accbe1cca198768968b8c5bad0e#ad614122d5916accbe1cca198768968b8c5bad0e"
 dependencies = [
  "serde",
  "thiserror 2.0.21",
@@ -1787,7 +1787,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "nddev-device-sync-rds"
+name = "nddev-device-sync-remote"
 version = "0.0.1-alpha.2"
 dependencies = [
  "anyhow",

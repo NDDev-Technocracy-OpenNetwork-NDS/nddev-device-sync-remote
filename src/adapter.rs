@@ -1,16 +1,16 @@
-use crate::{Error, IoError, ReadRds, view::*};
+use crate::{Error, IoError, ReadRemote, view::*};
 use nddev_device_sync_adapter_io::{CancellationToken, ProcessIo, ProcessRequest};
 
 use std::{path::PathBuf, time::Duration};
 
 #[derive(Clone)]
-pub struct Rds {
+pub struct Remote {
     io: ProcessIo,
     executable: PathBuf,
     control_directory: Option<PathBuf>,
 }
 
-impl Rds {
+impl Remote {
     pub fn new(
         io: ProcessIo,
         executable: PathBuf,
@@ -31,7 +31,7 @@ impl Rds {
     }
 }
 
-impl ReadRds for Rds {
+impl ReadRemote for Remote {
     async fn sessions(&self, cancellation: CancellationToken) -> Result<RemoteSnapshot, Error> {
         let mut arguments = vec!["session".into(), "list".into(), "--json".into()];
         if let Some(directory) = &self.control_directory {
@@ -140,11 +140,11 @@ mod tests {
     fn constructor_requires_absolute_paths() {
         let io = NativeIo::new(1).unwrap().process_handle();
         assert!(matches!(
-            Rds::new(io.clone(), PathBuf::from("rds"), None),
+            Remote::new(io.clone(), PathBuf::from("rds"), None),
             Err(Error::Io(IoError::InvalidConfiguration))
         ));
         assert!(matches!(
-            Rds::new(
+            Remote::new(
                 io.clone(),
                 std::env::temp_dir().join("rds"),
                 Some(PathBuf::from("rel"))
@@ -152,7 +152,7 @@ mod tests {
             Err(Error::Io(IoError::InvalidConfiguration))
         ));
         assert!(
-            Rds::new(
+            Remote::new(
                 io,
                 std::env::temp_dir().join("rds"),
                 Some(std::env::temp_dir().join("rds-state"))
