@@ -42,9 +42,11 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: python scripts/prepare-library-provider.py --destination "${{ runner.temp }}/rds-provider" --config "${{ runner.temp }}/rds-cargo-home/config.toml"
       - name: Install pinned quality tools
-        run: |
-          cargo install --locked --version 0.22.2 cargo-audit
-          cargo install --locked --version 0.20.2 cargo-deny
+        uses: NDDev-Technocracy-Standarts/std-0004-ci-cd-workflows/.github/actions/tools@365415f32190ae22ff22462e791a4829ad6e91fc # nddev-cicd-v0.6.16
+        with:
+          # cargo-audit 0.22.2, cargo-deny 0.20.2 and cargo-nextest 0.9.149 from checksummed
+          # releases instead of compiling them with cargo install in every job.
+          capability: rust
       - name: Run the STD-0004 native Rust contract
         id: native
         uses: NDDev-Technocracy-Standarts/std-0004-ci-cd-workflows/.github/actions/ci@a77e385fcf3c1b000c38167ecac7b74bb7715b10 # std-0004-v0.3.1
@@ -84,11 +86,16 @@ jobs:
         run: cargo clippy --locked --workspace --all-targets -- -D warnings
       - name: Native transport tests
         run: cargo test --locked --workspace
+      - name: Install verified prebuilt Rust quality tools
+        if: runner.os == 'Linux'
+        uses: NDDev-Technocracy-Standarts/std-0004-ci-cd-workflows/.github/actions/tools@365415f32190ae22ff22462e791a4829ad6e91fc # nddev-cicd-v0.6.16
+        with:
+          # cargo-audit 0.22.2, cargo-deny 0.20.2 and cargo-nextest 0.9.149 from checksummed
+          # releases instead of compiling them with cargo install in every job.
+          capability: rust
       - name: Dependency policy and advisory checks
         if: runner.os == 'Linux'
         run: |
-          cargo install --locked --version 0.20.2 cargo-deny
-          cargo install --locked --version 0.22.2 cargo-audit
           cargo deny --locked --all-features check
           cargo audit --deny warnings
       - name: Fetch verified native provider
