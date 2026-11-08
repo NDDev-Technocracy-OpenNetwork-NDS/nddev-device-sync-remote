@@ -1,10 +1,13 @@
 {
-  "repository": "NDDev-Technocracy-OpenNetwork/remote-device-sync",
+  "repository": "NDDev-Technocracy-OpenNetwork/nddev-remote",
   "source_commit": "2761dbdb76baee0edc2557b02ac7a90472312ab7",
   "tree": "7bf03e5b390a14fa4f627a4f42793eb7de99fb42",
-  "archive_sha256": "f21e35c991105d65e4f33495e0efa65024e5151fc95aca2734e521d1bbcfb539",
-  "archive_size": 5498793,
+  "archive_sha256": "acdf6d37792892a4fe97ef8d3e80aedc5e191b86c6a53730ac7947f749723786",
+  "archive_size": 5498935,
   "local_protocol": 5,
-  "features": ["rds-agent/desktop", "rds-agent/transport-noq"],
+  "features": [
+    "rds-agent/desktop",
+    "rds-agent/transport-noq"
+  ],
   "qualification": "isolated-source-build"
 }

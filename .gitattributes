@@ -1,6 +1,5 @@
 * text=auto eol=lf
 
-.nds/generated.json linguist-generated
 CLAUDE.md linguist-generated
 
 # These inputs are verified against immutable SHA-256 digests.

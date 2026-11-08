@@ -30,10 +30,10 @@ owned-screen = ["dep:nddev-device-sync-domain", "dep:nddev-device-sync-applicati
 [target.'cfg(target_os = "linux")'.dependencies]
 nddev-device-sync-domain = { version = "=0.0.12", git = "https://github.com/NDDev-Technocracy-OpenNetwork-NDS/nddev-device-sync-core.git", rev = "ad614122d5916accbe1cca198768968b8c5bad0e", optional = true }
 nddev-device-sync-application = { version = "=0.0.1-alpha.21", git = "https://github.com/NDDev-Technocracy-OpenNetwork-NDS/nddev-device-sync-core.git", rev = "ad614122d5916accbe1cca198768968b8c5bad0e", optional = true }
-rds-core = { version = "=0.1.0", git = "https://github.com/NDDev-Technocracy-OpenNetwork/remote-device-sync", rev = "2761dbdb76baee0edc2557b02ac7a90472312ab7", default-features = false, optional = true }
-rds-net = { version = "=0.1.0", git = "https://github.com/NDDev-Technocracy-OpenNetwork/remote-device-sync", rev = "2761dbdb76baee0edc2557b02ac7a90472312ab7", default-features = false, optional = true }
-rds-client = { version = "=0.1.0", git = "https://github.com/NDDev-Technocracy-OpenNetwork/remote-device-sync", rev = "2761dbdb76baee0edc2557b02ac7a90472312ab7", default-features = false, optional = true }
-rds-desktop = { version = "=0.1.0", git = "https://github.com/NDDev-Technocracy-OpenNetwork/remote-device-sync", rev = "2761dbdb76baee0edc2557b02ac7a90472312ab7", default-features = false, features = ["x11"], optional = true }
+rds-core = { version = "=0.1.0", git = "https://github.com/NDDev-Technocracy-OpenNetwork/nddev-remote", rev = "2761dbdb76baee0edc2557b02ac7a90472312ab7", default-features = false, optional = true }
+rds-net = { version = "=0.1.0", git = "https://github.com/NDDev-Technocracy-OpenNetwork/nddev-remote", rev = "2761dbdb76baee0edc2557b02ac7a90472312ab7", default-features = false, optional = true }
+rds-client = { version = "=0.1.0", git = "https://github.com/NDDev-Technocracy-OpenNetwork/nddev-remote", rev = "2761dbdb76baee0edc2557b02ac7a90472312ab7", default-features = false, optional = true }
+rds-desktop = { version = "=0.1.0", git = "https://github.com/NDDev-Technocracy-OpenNetwork/nddev-remote", rev = "2761dbdb76baee0edc2557b02ac7a90472312ab7", default-features = false, features = ["x11"], optional = true }
 anyhow = { version = "1", optional = true }
 # Same checked native transport type, for enum-only read limit mapping.
 iroh = { version = "=1.3.0", default-features = false, optional = true }
