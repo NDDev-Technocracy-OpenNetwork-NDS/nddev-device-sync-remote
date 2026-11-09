@@ -32,7 +32,11 @@ jobs:
           CARGO_HOME: ${{ runner.temp }}/rds-cargo-home
         run: printf '%s\n' "CARGO_HOME=$CARGO_HOME" >> "$GITHUB_ENV"
       - name: Install pinned Rust toolchain
-        run: rustup toolchain install 1.99.1 --profile minimal --component rustfmt,clippy
+        uses: NDDev-Technocracy-OpenNetwork/nddev-ci/actions/hosted-sdk@52d8302d2272967a21fd8e3ae594205588648777 # v0.6.28
+        with:
+          rust-version: '1.99.1'
+          rust-components: rustfmt,clippy
+          tools: cargo-audit@0.22.2,cargo-deny@0.20.2,cargo-nextest@0.9.149
       - name: Restore the Cargo dependency and tool cache
         uses: Swatinem/rust-cache@d1527c8f67ef9af357290475d4af4b0fab8f12e0 # v2.9.3
         with:
@@ -43,10 +47,6 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: python scripts/prepare-library-provider.py --destination "${{ runner.temp }}/rds-provider" --config "${{ runner.temp }}/rds-cargo-home/config.toml"
-      - name: Install pinned quality tools
-        uses: NDDev-Technocracy-OpenNetwork/nddev-ci/actions/hosted-sdk@52d8302d2272967a21fd8e3ae594205588648777 # v0.6.28
-        with:
-          tools: cargo-audit@0.22.2,cargo-deny@0.20.2,cargo-nextest@0.9.149
       - name: Prepare locked source inputs
         uses: NDDev-Technocracy-OpenNetwork/nddev-ci/actions/recipe@52d8302d2272967a21fd8e3ae594205588648777 # v0.6.28
         with:
@@ -79,7 +79,10 @@ jobs:
           CARGO_HOME: ${{ runner.temp }}/rds-cargo-home
         run: printf '%s\n' "CARGO_HOME=$CARGO_HOME" >> "$GITHUB_ENV"
       - name: Install pinned Rust
-        run: rustup toolchain install 1.99.1 --profile minimal --component rustfmt,clippy
+        uses: NDDev-Technocracy-OpenNetwork/nddev-ci/actions/hosted-sdk@52d8302d2272967a21fd8e3ae594205588648777 # v0.6.28
+        with:
+          rust-version: '1.99.1'
+          rust-components: rustfmt,clippy
       - name: Prepare checked library metadata inputs
         env:
           GH_TOKEN: ${{ github.token }}
@@ -130,7 +133,10 @@ jobs:
           NDS_HOST_PEER_RESULTS: ${{ runner.temp }}/rds-owned-host-peer-results.json
         run: printf '%s\n' "CARGO_HOME=$CARGO_HOME" "NDS_RECEIVER_RESULTS=$NDS_RECEIVER_RESULTS" "NDS_HOST_DRAIN_RESULTS=$NDS_HOST_DRAIN_RESULTS" "NDS_HOST_PEER_RESULTS=$NDS_HOST_PEER_RESULTS" >> "$GITHUB_ENV"
       - name: Install pinned Rust
-        run: rustup toolchain install 1.99.1 --profile minimal --component rustfmt,clippy
+        uses: NDDev-Technocracy-OpenNetwork/nddev-ci/actions/hosted-sdk@52d8302d2272967a21fd8e3ae594205588648777 # v0.6.28
+        with:
+          rust-version: '1.99.1'
+          rust-components: rustfmt,clippy
       - name: Restore the Cargo dependency and tool cache
         uses: Swatinem/rust-cache@d1527c8f67ef9af357290475d4af4b0fab8f12e0 # v2.9.3
         with:
