@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "assets": [
+    {
+      "repository": "rustsec/rustsec",
+      "asset": 731642913,
+      "size": 6481356,
+      "sha256": "4f01c74ed84b2dffd0b1d37012a62cdf2a92c96e25bdf8eec7fcc0d4d3eb7811",
+      "file": "cargo-audit.tgz",
+      "members": [
+        {
+          "path": "cargo-audit-x86_64-unknown-linux-musl-v0.23.0/cargo-audit",
+          "size": 15084320,
+          "sha256": "ae133cc7bdfc6d61d1f9d000da3259423f1a232e6275e9ade45b4b4c67207b64",
+          "file": "cargo-audit",
+          "executable": true
+        }
+      ]
+    }
+  ]
+}
