@@ -36,7 +36,7 @@ rds-client = { version = "=0.1.0", git = "https://github.com/NDDev-Technocracy-O
 rds-desktop = { version = "=0.1.0", git = "https://github.com/NDDev-Technocracy-OpenNetwork/nddev-remote", rev = "2761dbdb76baee0edc2557b02ac7a90472312ab7", default-features = false, features = ["x11"], optional = true }
 anyhow = { version = "1", optional = true }
 # Same checked native transport type, for enum-only read limit mapping.
-iroh = { version = "=1.3.0", default-features = false, optional = true }
+iroh = { version = "=1.4.1", default-features = false, optional = true }
 postcard = { version = "1", default-features = false, features = ["alloc"], optional = true }
 rand = { version = "0.10", optional = true }
 tokio = { version = "=1.54.1", features = ["rt", "sync", "time"], optional = true }
