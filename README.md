@@ -74,50 +74,14 @@ Its ephemeral keys and fixture grants do not establish NDS device authorization
 or native trust. This code is a qualification input, not an exported NDS browser
 viewer. Other browsers, Wayland and other native platforms remain unqualified.
 
-The Linux library bootstrap is build tooling, separate from screen activation.
-`scripts/prepare-library-provider.py --destination CACHE --config CONFIG` reuses
-the checked source preparer and emits one consumer-root Cargo override file.
-An optional `--archive` accepts the exact published provider source archive.
-Generated inputs/config stay outside this repository. Consumers supply CONFIG
-to every top-level Cargo command; dependency-local patches are ignored by Cargo.
-The build-input lock also identifies a small AGPL-3.0-only desktop source overlay.
-It joins active native capture and codec work before reporting their completion;
-the original source archive, Git revision and release signer remain unchanged.
-The owned receiver requires its native completion API revision at compile time,
-so raw or older prepared provider inputs cannot silently satisfy this path.
-Every changed source file has exact before/after digests. Preparation checks the
-entire derived tree and rejects unrelated edits or reuse of older prepared inputs.
-Use the selected SDK's preparer in a fresh admitted input directory; an old
-consumer config does not adopt a new source overlay.
+The current Linux library pins NDDev Remote and its vendored Iroh and Noq in
+`Cargo.toml`. The consumer root applies the same Cargo patches when compiling the
+owned receiver. The lock keeps the standard-library Postcard path without heapless.
+Normal audits report maintenance notices and fail on vulnerabilities or unsoundness.
 
-Checked manifests disable unused Postcard heapless/CAS defaults while retaining
-the native alloc/std serialization APIs and wire types. Advisory gates reject
-maintenance warnings as well as known vulnerabilities.
-Use a dedicated Cargo home with this generated config for external Cargo tools
-as well; the gate rejects tools that silently alter its lockfile/source graph.
-The SDK gate invokes the native cargo-deny entrypoint with its precomputed
-metadata and policy file. The same prepared Cargo home remains in effect, so
-an external tool's policy option cannot be consumed as Cargo source config.
-
-The committed lock resolves these checked patches, including the vendored
-Iroh/Noq family. Plain Cargo has a different graph: do not regenerate the lock
-against raw upstream sources to silence that mismatch. From this repository on
-Linux, prepare fresh inputs outside the checkout and verify the locked graph:
-
-```sh
-rds_inputs="$(mktemp -d "${TMPDIR:-/tmp}/nds-rds-inputs.XXXXXXXX")"
-python3 scripts/prepare-library-provider.py \
-  --destination "$rds_inputs/provider" --config "$rds_inputs/cargo-home/config.toml"
-CARGO_HOME="$rds_inputs/cargo-home" cargo metadata --locked --features owned-screen --format-version 1 > /dev/null
-CARGO_HOME="$rds_inputs/cargo-home" just check
-CARGO_HOME="$rds_inputs/cargo-home" cargo deny --locked check licenses sources
-```
-
-Retain the owned input directory through verification, then remove it when no
-consumer is using it. Existing `insteadOf` rewrites, cached inputs or
-`[[patch.unused]]` entries cannot substitute for a fresh prepared graph.
-Only `rds-agent/desktop` and `rds-desktop/x11` are selected; the provider GUI,
-portal and owned transport backend are excluded from this first library gate.
+`scripts/prepare-library-provider.py` retains the independently checked provider
+archive and source overlay for the separate archive and browser qualification.
+Use its emitted configuration with that preparation's matching qualification lock.
 
 `scripts/check-library.py --help` describes the downstream archive/public-Git
 gate. It requires a new output directory, starts with empty controlled Cargo and
@@ -135,9 +99,7 @@ public Git-consumer gate after source publication. Neither proves NDS endpoint
 authorization, host/credential activation or integrated Flutter screen runtime.
 
 The opt-in `owned-screen` feature exports the Linux owned receiver primitives.
-It uses the exact checked provider inputs from `prepare-library-provider.py`;
-supply the emitted consumer-root config to all Cargo commands, including default
-checks after adopting the feature dependency lock. Accounts and the existing
+It uses the pinned provider's native lifetime API. Accounts and the existing
 NdsClient keep authority, the purpose owner, and presentation. The native receiver
 carries a conservative local exposed-queue/processing/residency bound through
 raw receive, unchanged native decode and two retained frame permits. It does not
