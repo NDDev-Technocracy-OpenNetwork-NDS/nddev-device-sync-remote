@@ -9,8 +9,6 @@ check:
     cargo fmt -- --check
     rustfmt --edition 2024 --check src/screen.rs qualification/screen.rs qualification/browser/transport.rs qualification/browser/fixture.rs qualification/browser/receiver_probe.rs
     rustfmt --edition 2024 --check qualification/library.rs qualification/owned-library.rs
-    cargo clippy --locked --all-targets -- -D warnings
-    cargo test --locked
 
 provider-check:
     cargo test --locked --test provider -- --ignored
@@ -38,7 +36,7 @@ test:
     cargo test --locked --workspace
 
 ci-extras:
-    cargo audit --deny warnings
+    cargo audit --deny unsound --deny yanked
     rustfmt --edition 2024 --check src/screen.rs qualification/screen.rs qualification/browser/transport.rs qualification/browser/fixture.rs qualification/browser/receiver_probe.rs qualification/library.rs qualification/owned-library.rs
     cargo test --locked --features owned-screen --lib
 

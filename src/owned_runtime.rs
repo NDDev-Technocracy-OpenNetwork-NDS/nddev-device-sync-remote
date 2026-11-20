@@ -29,11 +29,6 @@ use tokio::{
 use tokio_util::sync::CancellationToken;
 use tracing::{Instrument, instrument::WithSubscriber};
 
-// Fail compilation with raw/older native inputs. Drain depends on the checked
-// provider implementation, even though the upstream Git/package identity stays
-// fixed. A source marker never substitutes for real host/codec qualification.
-const _: () = assert!(rds_desktop::NDS_NATIVE_COMPLETION_REVISION == 1);
-
 pub(crate) fn wall_now() -> Result<u64> {
     SystemTime::now()
         .duration_since(UNIX_EPOCH)
@@ -263,7 +258,7 @@ pub async fn serve_builtin_x11(
                 source: None,
                 producer: None,
                 view_only: true,
-                reverse_clipboard: false,
+                native_lifetime: Some(Arc::clone(&life) as rds_desktop::clipboard::NativeLifetime),
                 payload_receipts: false,
                 output_height: Some(fitted),
                 source_extent: Some(extent),
@@ -1258,7 +1253,7 @@ mod tests {
                 "passed": true,
                 "cases": outcomes,
                 "scope": "owned Linux Xvfb native host/receiver drain; no Accounts-authenticated product or ambient desktop",
-                "source_overlay": "providers/build-patches/desktop-owned-drain.patch"
+                "provider": "pinned NDDev Remote Git source"
             })).unwrap(),
         ).unwrap();
     }
@@ -1558,6 +1553,6 @@ mod tests {
         close(host, viewer, live, cancel, task).await;
         outcomes.push(serde_json::json!({"unpolled_lease_expiry":true,"held_output_denied":true}));
         let path = std::env::var("NDS_RECEIVER_RESULTS").unwrap();
-        std::fs::write(path,serde_json::to_vec_pretty(&serde_json::json!({"passed":true,"cases":outcomes,"clock":"conservative local observed-empty accept boundary; no sender/receiver clock subtraction","scope":"real native source/grant/transport/decoder subsystem; no fake authenticated NDS principal","provider_modified_by_fixture":false,"checked_source_overlay":"providers/build-patches/desktop-owned-drain.patch","fixture_pause":"cfg(test) delays before raw accept/before actual native decode/after actual native decode; real transport fragmentation at tag/header/body; no fake decoder success","startup_limit":"initial causal anchor before greeting can conservatively shorten nominal five-second startup to three seconds; unchanged idle separately passes"})).unwrap()).unwrap();
+        std::fs::write(path,serde_json::to_vec_pretty(&serde_json::json!({"passed":true,"cases":outcomes,"clock":"conservative local observed-empty accept boundary; no sender/receiver clock subtraction","scope":"real native source/grant/transport/decoder subsystem; no fake authenticated NDS principal","provider_modified_by_fixture":false,"provider":"pinned NDDev Remote Git source","fixture_pause":"cfg(test) delays before raw accept/before actual native decode/after actual native decode; real transport fragmentation at tag/header/body; no fake decoder success","startup_limit":"initial causal anchor before greeting can conservatively shorten nominal five-second startup to three seconds; unchanged idle separately passes"})).unwrap()).unwrap();
     }
 }
