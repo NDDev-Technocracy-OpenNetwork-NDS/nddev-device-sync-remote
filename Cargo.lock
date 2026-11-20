@@ -1330,7 +1330,7 @@ checksum = "791930b43c0d5973160d90a8f3894509f2b273430f5c5c73b668636d0287c5c0"
 [[package]]
 name = "iroh"
 version = "1.4.1"
-source = "git+https://github.com/NDDev-Technocracy-OpenNetwork/nddev-remote?rev=3f16b5a19f881758b0c4c52488a318bc5ff83b64#3f16b5a19f881758b0c4c52488a318bc5ff83b64"
+source = "git+https://github.com/NDDev-Technocracy-OpenNetwork/nddev-remote?rev=d6606d912aff0f9f9604323a143f1c01ed164562#d6606d912aff0f9f9604323a143f1c01ed164562"
 dependencies = [
  "backon",
  "blake3",
@@ -1925,7 +1925,7 @@ dependencies = [
 [[package]]
 name = "nddev-opennetwork-design-tokens"
 version = "0.0.1-alpha.9"
-source = "git+https://github.com/NDDev-Technocracy-OpenNetwork/nddev-remote?rev=3f16b5a19f881758b0c4c52488a318bc5ff83b64#3f16b5a19f881758b0c4c52488a318bc5ff83b64"
+source = "git+https://github.com/NDDev-Technocracy-OpenNetwork/nddev-remote?rev=d6606d912aff0f9f9604323a143f1c01ed164562#d6606d912aff0f9f9604323a143f1c01ed164562"
 
 [[package]]
 name = "ndk-context"
@@ -2126,7 +2126,7 @@ dependencies = [
 [[package]]
 name = "noq"
 version = "1.4.0"
-source = "git+https://github.com/NDDev-Technocracy-OpenNetwork/nddev-remote?rev=3f16b5a19f881758b0c4c52488a318bc5ff83b64#3f16b5a19f881758b0c4c52488a318bc5ff83b64"
+source = "git+https://github.com/NDDev-Technocracy-OpenNetwork/nddev-remote?rev=d6606d912aff0f9f9604323a143f1c01ed164562#d6606d912aff0f9f9604323a143f1c01ed164562"
 dependencies = [
  "bytes",
  "cfg_aliases",
@@ -2147,7 +2147,7 @@ dependencies = [
 [[package]]
 name = "noq-proto"
 version = "1.4.0"
-source = "git+https://github.com/NDDev-Technocracy-OpenNetwork/nddev-remote?rev=3f16b5a19f881758b0c4c52488a318bc5ff83b64#3f16b5a19f881758b0c4c52488a318bc5ff83b64"
+source = "git+https://github.com/NDDev-Technocracy-OpenNetwork/nddev-remote?rev=d6606d912aff0f9f9604323a143f1c01ed164562#d6606d912aff0f9f9604323a143f1c01ed164562"
 dependencies = [
  "aes-gcm",
  "bytes",
@@ -2676,7 +2676,7 @@ dependencies = [
 [[package]]
 name = "rds-client"
 version = "0.1.4"
-source = "git+https://github.com/NDDev-Technocracy-OpenNetwork/nddev-remote?rev=3f16b5a19f881758b0c4c52488a318bc5ff83b64#3f16b5a19f881758b0c4c52488a318bc5ff83b64"
+source = "git+https://github.com/NDDev-Technocracy-OpenNetwork/nddev-remote?rev=d6606d912aff0f9f9604323a143f1c01ed164562#d6606d912aff0f9f9604323a143f1c01ed164562"
 dependencies = [
  "anyhow",
  "blake3",
@@ -2698,7 +2698,7 @@ dependencies = [
 [[package]]
 name = "rds-core"
 version = "0.1.4"
-source = "git+https://github.com/NDDev-Technocracy-OpenNetwork/nddev-remote?rev=3f16b5a19f881758b0c4c52488a318bc5ff83b64#3f16b5a19f881758b0c4c52488a318bc5ff83b64"
+source = "git+https://github.com/NDDev-Technocracy-OpenNetwork/nddev-remote?rev=d6606d912aff0f9f9604323a143f1c01ed164562#d6606d912aff0f9f9604323a143f1c01ed164562"
 dependencies = [
  "blake3",
  "bytes",
@@ -2714,7 +2714,7 @@ dependencies = [
 [[package]]
 name = "rds-desktop"
 version = "0.1.4"
-source = "git+https://github.com/NDDev-Technocracy-OpenNetwork/nddev-remote?rev=3f16b5a19f881758b0c4c52488a318bc5ff83b64#3f16b5a19f881758b0c4c52488a318bc5ff83b64"
+source = "git+https://github.com/NDDev-Technocracy-OpenNetwork/nddev-remote?rev=d6606d912aff0f9f9604323a143f1c01ed164562#d6606d912aff0f9f9604323a143f1c01ed164562"
 dependencies = [
  "blake3",
  "bytes",
@@ -2741,7 +2741,7 @@ dependencies = [
 [[package]]
 name = "rds-discovery"
 version = "0.1.4"
-source = "git+https://github.com/NDDev-Technocracy-OpenNetwork/nddev-remote?rev=3f16b5a19f881758b0c4c52488a318bc5ff83b64#3f16b5a19f881758b0c4c52488a318bc5ff83b64"
+source = "git+https://github.com/NDDev-Technocracy-OpenNetwork/nddev-remote?rev=d6606d912aff0f9f9604323a143f1c01ed164562#d6606d912aff0f9f9604323a143f1c01ed164562"
 dependencies = [
  "blake3",
  "data-encoding",
@@ -2765,7 +2765,7 @@ dependencies = [
 [[package]]
 name = "rds-net"
 version = "0.1.4"
-source = "git+https://github.com/NDDev-Technocracy-OpenNetwork/nddev-remote?rev=3f16b5a19f881758b0c4c52488a318bc5ff83b64#3f16b5a19f881758b0c4c52488a318bc5ff83b64"
+source = "git+https://github.com/NDDev-Technocracy-OpenNetwork/nddev-remote?rev=d6606d912aff0f9f9604323a143f1c01ed164562#d6606d912aff0f9f9604323a143f1c01ed164562"
 dependencies = [
  "anyhow",
  "bytes",
@@ -2788,7 +2788,7 @@ dependencies = [
 [[package]]
 name = "rds-observe"
 version = "0.1.4"
-source = "git+https://github.com/NDDev-Technocracy-OpenNetwork/nddev-remote?rev=3f16b5a19f881758b0c4c52488a318bc5ff83b64#3f16b5a19f881758b0c4c52488a318bc5ff83b64"
+source = "git+https://github.com/NDDev-Technocracy-OpenNetwork/nddev-remote?rev=d6606d912aff0f9f9604323a143f1c01ed164562#d6606d912aff0f9f9604323a143f1c01ed164562"
 dependencies = [
  "httparse",
  "rand",
@@ -2806,7 +2806,7 @@ dependencies = [
 [[package]]
 name = "rds-sync"
 version = "0.1.4"
-source = "git+https://github.com/NDDev-Technocracy-OpenNetwork/nddev-remote?rev=3f16b5a19f881758b0c4c52488a318bc5ff83b64#3f16b5a19f881758b0c4c52488a318bc5ff83b64"
+source = "git+https://github.com/NDDev-Technocracy-OpenNetwork/nddev-remote?rev=d6606d912aff0f9f9604323a143f1c01ed164562#d6606d912aff0f9f9604323a143f1c01ed164562"
 dependencies = [
  "anyhow",
  "blake3",
